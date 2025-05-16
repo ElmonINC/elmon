@@ -1,0 +1,10 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    max-width: box-content;
+    margin: 0 auto;
+}
