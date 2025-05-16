@@ -1,0 +1,1 @@
+web: gunicorn elmon.wsgi --workers 4
