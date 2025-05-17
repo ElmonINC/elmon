@@ -14,7 +14,7 @@ body{
     width: 100%;
           
     /* Background image setup */
-    background-image: url(' C:\Users\ELMON\Desktop\ONE\elmon\folio\static\folio\images.jpeg');   
+    background-image: url('../images/images-4.jpeg');   
     background-position: center;
     background-repeat: no-repeat; 
     background-size: cover;  
@@ -39,7 +39,7 @@ body{
     height: 100%;
     /*ckground-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
     z-index: 1;
-}
+}  
 
 .container {
   font-family: 'Courier New', monospace;
