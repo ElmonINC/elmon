@@ -1,3 +1,32 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const navbar = document.querySelector('.navbar');
+    let lastScrollY = window.scrollY;
+
+    // Function to check if element is in viewport
+    const isElementInViewport = (el) => {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top <= 0 &&
+            rect.bottom >= 0
+        );
+    };
+
+    window.addEventListener('scroll', () => {
+        const section3 = document.querySelectorAll('section')[2]; // Third section
+        
+        if (isElementInViewport(section3)) {
+            navbar.style.transform = 'translateY(-100%)';
+        } else {
+            // Show navbar when scrolling up
+            if (window.scrollY < lastScrollY) {
+                navbar.style.transform = 'translateY(0)';
+            }
+        }
+        
+        lastScrollY = window.scrollY;
+    });
+}); 
+
 function createTypingAnimation(text) {
   const element = document.getElementById('target');
   if (!element) {
