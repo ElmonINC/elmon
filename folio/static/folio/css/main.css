@@ -25,11 +25,21 @@
   box-sizing: border-box;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+html, body{
+  scrollbar-width: none;
+  -ms-overflow-style: none; /* IE and Edge */
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
 body{
   font-family: 'Arial', sans-serif;
   margin: 0 auto;
   background-color: var(--bg-primary);
   color: var(--text-primary);
+  scrollbar-width: none;
+  -ms-overflow-style: none; /* IE and Edge */
+  /*overflow: hidden  !important; */
 }
 a{
   text-decoration: none;
@@ -89,6 +99,7 @@ a{
 }
 
 .hero {
+
   /* Fullscreen setup */
   min-height: 100vh;
   width: 100%;
@@ -109,6 +120,24 @@ a{
   position: relative;
 }
 
+.hero .container {
+  position: relative;
+  z-index: 2;  /* Places content above the overlay */
+  color: #fff;  /* Forces white text */
+  background-color: transparent;  /* Ensures background is transparent */
+  padding: 2rem;
+  text-align: center;
+}
+
+.hero .container h3,
+.hero .container .typing-text,
+.hero .container p {
+  position: relative;
+  z-index: 2;
+  color: #fff !important;  /* Forces white text with highest priority */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);  /* Optional: adds readability */
+}
+
 /* Optional dark overlay */
 .hero::before {
   content: '';
@@ -117,15 +146,14 @@ a{
   left: 0;
   width: 100%;
   height: 100%;
-  /*background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
-  z-index: 1;
   background-color: var(--hero-overlay);
-
-}  
+  z-index: 1;
+  /*background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+}   
 
 .container {
-  font-family: 'Courier New', monospace;
-  margin: 2rem;
+  font-family: 'Arial', sans-serif;
+  margin: 2rem; 
 }
 
 .typing-text {
@@ -141,8 +169,11 @@ a{
   white-space: nowrap;
   border-right: 2px solid transparent;
   width: 0;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+/*padding-left: 0.2em; */
 }
-
+ 
 .cursor {
   position: absolute;
   right: 0;

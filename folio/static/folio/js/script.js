@@ -51,30 +51,32 @@ function createTypingAnimation(text) {
   
   let cycles = 0;
   
-  function animate() {
-    if (cycles >= 2) {
-      element.style.animation = 'none';
-      element.style.width = `${textLength * chWidth}ch`;
-      element.textContent = text; // Keep the text
-      return;
-    }
+function animate() {
+  if (cycles >= 2) {
+    element.style.animation = 'none';
+    // Add spaces after the last letter (e.g., 20 spaces)
+    //element.textContent = text + ' '; // 19 spaces
+    //element.appendChild(cursor);
+    element.style.width = `${(textLength + 19) * chWidth}ch`;
+    return;
+  }
 
-    element.style.animation = `typing ${typeDuration}ms steps(${textLength}) forwards`;
-    
-    setTimeout(() => {
-      if (cycles < 1) { // Only erase if we haven't completed the first cycle
-        element.style.animation = `erase ${eraseDuration}ms steps(${textLength}) forwards`;
-        
-        setTimeout(() => {
-          cycles++;
-          animate();
-        }, eraseDuration);
-      } else {
+  element.style.animation = `typing ${typeDuration}ms steps(${textLength}) forwards`;
+
+  setTimeout(() => {
+    if (cycles < 1) { // Only erase if we haven't completed the first cycle
+      element.style.animation = `erase ${eraseDuration}ms steps(${textLength}) forwards`;
+
+      setTimeout(() => {
         cycles++;
         animate();
-      }
-    }, typeDuration);
-  }
+      }, eraseDuration);
+    } else {
+      cycles++;
+      animate();
+    }
+  }, typeDuration);
+}
 
   element.style.setProperty('--text-width', `${textLength * chWidth}ch`);
   
@@ -82,5 +84,5 @@ function createTypingAnimation(text) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    createTypingAnimation("My name is ELMON");
+    createTypingAnimation("My name is ELMON ");
 });
