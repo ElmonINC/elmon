@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: lime;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2rem;
+    overflow: hidden;
+}
+
+.matrix {
+    position: relative;
+    white-space: nowrap;
+    animation: drop 5s linear infinite;
+}
+
+@keyframes drop {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
