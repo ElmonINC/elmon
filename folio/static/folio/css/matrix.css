@@ -1,36 +1,78 @@
-body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar {
+    display: none;
+}
+html, body {
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer and Edge */
+}
+.matrix-container {
     background-color: black;
-    color: lime;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 2rem;
+    height: 100vh;
+    width: 100vw;
     overflow: hidden;
-}
-
-.matrix {
     position: relative;
-    white-space: nowrap;
-    animation: drop 5s linear infinite;
 }
 
-@keyframes drop {
-    0% {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(100%);
-        opacity: 0;
-    }
+.matrix-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2em;
+    color: #0F0;
+    line-height: 1em;
+}
+
+.typing-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFFFFF; /* Brighter white */
+    font-size: 2em;
+    z-index: 100;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgba(0, 0, 0, 0.85); /* Darker background for better contrast */
+    padding: 20px 40px;
+    border-radius: 8px;
+    /*text-shadow: 
+        0 0 5px #FFF,
+        0 0 10px #FFF,
+        0 0 15px #FFF,
+        0 0 20px #FFFFFF; /* Multiple layers of text shadow for sharpness */
+    letter-spacing: 2px;
+    font-weight: bold;
+    /*box-shadow: 
+        0 0 20px rgba(0, 0, 0, 0.8),
+        inset 0 0 15px rgba(255, 255, 255, 0.1); /* Added inner glow */
+    min-width: 400px;
+    -webkit-font-smoothing: antialiased; /* Sharper text on webkit browsers */
+    -moz-osx-font-smoothing: grayscale; /* Sharper text on Firefox */
+}
+
+.cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1em;
+    background-color: white;
+    margin-left: 5px;
+    animation: blink 1s infinite;
+    /*box-shadow: 0 0 10px #FFFFFF; /* Add glow to cursor */
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes erasing {
+    from { width: 100% }
+    to { width: 0 }
 }

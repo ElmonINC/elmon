@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,12 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matrix Typing Effect</title>    
     <link rel="stylesheet" href="{% static 'folio/css/matrix.css' %}">
-    <script src="{% static 'folio/js/matrix.js' %}"></script> 
 </head>
 <body>
     <div class="matrix-container">
         <div class="matrix-text" id="matrixText"></div>
+        <div class="typing-overlay">
+            <span id="typed-text"></span>
+            <span class="cursor"></span>
+        </div>
     </div>
-    <script src="scripts/matrix.js"></script>
+    <script src="{% static 'folio/js/matrix.js' %}"></script> 
 </body>
 </html>

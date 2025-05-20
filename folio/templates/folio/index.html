@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'folio/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'folio/css/main.css' %}?v={% now 'U' %}">
     <script src="{% static 'folio/js/script.js' %}"></script> 
     <title>ELMON | Website Developer </title>
 </head>
@@ -29,10 +29,15 @@
     <section class="hero">
         <div class="container" >
             
-        <h3>Welcome</h3>
-            <div  class="typing-text" id="target"></div>
-        <p>This is the first section of the website.</p>
-        </div>     
+        <!-- <h1>Welcome</h1> -->
+        <div  class="typing-text" id="target"></div>
+        <!-- <p>This is the first section of the website.</p> -->  
+        <!-- <div><a href="{% url 'matrix' %}">matrix</a></div> -->
+        </div>
+        <div class="hir">
+        <p>You are welcome, I am a web developer dedicated to creating beautiful and functional websites.</p>
+        <div><a href="hi.html" class="hi-el">Hire Me</a></div>
+        </div>
     </section> 
     <section>   
         <h2>Section 2</h2>

@@ -57,6 +57,11 @@ function animate() {
     // Add spaces after the last letter (e.g., 20 spaces)
     //element.textContent = text + ' '; // 19 spaces
     //element.appendChild(cursor);
+    // Remove the cursor after second cycle
+    const cursor = element.querySelector('span');
+    if (cursor) {
+      cursor.remove();
+    }
     element.style.width = `${(textLength + 19) * chWidth}ch`;
     return;
   }
@@ -79,7 +84,6 @@ function animate() {
 }
 
   element.style.setProperty('--text-width', `${textLength * chWidth}ch`);
-  
   animate();
 }
 
