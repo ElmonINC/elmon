@@ -90,3 +90,55 @@ function animate() {
 document.addEventListener('DOMContentLoaded', () => {
     createTypingAnimation("My name is ELMON ");
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const hirElement = document.querySelector('.hir');
+    const servicesElement = document.querySelector('.Services');
+    
+    hirElement.addEventListener('mouseenter', function() {
+        servicesElement.classList.add('visible');
+    });
+    
+    hirElement.addEventListener('mouseleave', function(e) {
+        // Check if mouse is moving upward
+        if (e.clientY < hirElement.getBoundingClientRect().top) {
+            servicesElement.classList.remove('visible');
+        }
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const welcomeText = document.getElementById('welcome-text');
+    
+    if (!welcomeText) return;
+
+    const texts = {
+        'web': welcomeText.dataset.web,
+        'ud': welcomeText.dataset.ux,
+        'gd': welcomeText.dataset.graphics
+    };
+
+    // Function to change text with fade effect
+    function changeText(newText) {
+        welcomeText.style.opacity = '0';
+        setTimeout(() => {
+            welcomeText.textContent = newText;
+            welcomeText.style.opacity = '1';
+        }, 200);
+    }
+
+    // Add hover listeners to service items
+    ['web', 'ud', 'gd'].forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.addEventListener('mouseenter', () => {
+                changeText(texts[id]);
+            });
+
+            element.addEventListener('mouseleave', () => {
+                changeText(texts['web']); // Reset to default text
+            });
+        }
+    });
+});

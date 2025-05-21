@@ -7,6 +7,7 @@
   --link-hover:rgb(151, 7, 7);
   --hero-overlay: rgba(0, 0, 0, 0.5);
 } 
+
 @media (prefers-color-scheme: dark) {
   :root { 
     /* Dark theme variables */
@@ -63,8 +64,6 @@ a{
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  /* background-color: rgba(255, 255, 255, 0.95); 
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); */
   z-index: 1000;
   transition: transform 0.3s ease-in-out;
 }
@@ -84,8 +83,6 @@ a{
 
 .nav-links a {
   color: var(--text-primary);
-  /* ...existing code... 
-  color: #333; */
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
@@ -93,7 +90,6 @@ a{
 
 .nav-links a:hover {
   color: var(--link-hover);
-  /*color: #007bff;*/
 }
 
 /* Media query for mobile responsiveness */
@@ -120,9 +116,28 @@ a{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
     
   /* Optional overlay to improve text readability */
   position: relative;
+}
+
+.contt {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  max-width: 1200px;
+  width: 60%;
+  height: calc(70vh); /* This makes it extend from 30% to bottom */
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: clamp(1rem, 3vh, 3rem); /* Responsive gap */
+  padding: clamp(1rem, 2vh, 2rem);
+  z-index: 2;
 }
 
 .hero .container {
@@ -132,6 +147,10 @@ a{
   background-color: transparent;  /* Ensures background is transparent */
   padding: 2rem;
   text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero .container h3,
@@ -153,15 +172,15 @@ a{
   height: 100%;
   background-color: var(--hero-overlay);
   z-index: 1;
-  /*background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
 }   
 
 .container {
   font-family: 'lilita One' , sans-serif;
   margin: 2rem; 
 }
+
 .container #target{
-  font-size: 3rem;
+  font-size: clamp(2rem, 4vw, 3rem);
 }
 
 .typing-text {
@@ -180,7 +199,6 @@ a{
   font-weight: bold;
   padding-right: 0.5em;
   padding-left: 0.5em;
-/*padding-left: 0.2em; */
 }
  
 .cursor {
@@ -202,37 +220,82 @@ a{
   from { width: var(--text-width) }
   to { width: 0; }
 }
+
 .hir{
   font-family: 'lilita One' , sans-serif;
   font-size: 1rem;
-  /*font-weight: bold;*/
   color: var(--text-primary);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   position: relative;
+  cursor: pointer;
   z-index: 2; /* Places above overlay (which has z-index: 1) */
-  width: 40%;
-  /*left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);*/
   text-align: center;
   padding: 1rem;
+  width: 90%;
+  max-width: 800px;
+  /*margin: 0 auto;   
+  /* ...existing code... */
+  position: relative;
+  z-index: 3;
+}
+
+.hir p {
+  font-size: clamp(0.9rem, 1.8vw, 1.15rem);
+  width: 100%;
+  transition: opacity 0.2s ease-in-out;
+  /* ...existing code... */
+  min-height: 4.5em;  /* Set a fixed minimum height */
+  height: 5em;      /* Set a fixed height */
+  overflow: hidden; /* Hide any overflow */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  transition: opacity 0.2s ease-in-out;
+  line-height: 1.5;
+}
+
+@media (min-width: 900px) {
+  .hir p {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+
+/* Show Services when hovering over .hir p */
+.hir:hover ~ .Services,
+.Services:hover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto; /* Add this */
+}
+
+/* Show Services when hovering over .hir or Services itself */
+.hir:hover ~ .Services,
+.Services.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .hi-el {
   font-family: 'lilita One', sans-serif;
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 1.5rem;
+  font-weight: bold; 
   color: var(--text-primary);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     
   /* Box styling */
   position: relative;
   display: inline-block;
-  padding: 0.2rem 0.2rem;
-  border-radius: 15px;
+  padding: 0.2rem 0.5rem;
+  border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(5px);
-    
+  margin-top: 1rem; /* Adds space above hi-el button */
+
   /* Border and shadow for depth */
   border: 2px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -245,4 +308,124 @@ a{
   background-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hir-el{
+  width: 100%;
+  margin-bottom: 0.2rem;
+  height: 4.5em; /* Slightly larger than p height to accommodate content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Services {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  z-index: 2;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 0px;  
+  margin-bottom: 0.5rem; 
+  /* ...existing code... */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;;
+  pointer-events: none; /* Add this */
+  position: relative;
+  z-index: 2;
+}
+
+.Services h2 {
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  /* ...existing code... */
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.Services h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    #ff000060 10%, 
+    #ff0000 25%, 
+    #ff000060 50%, 
+    transparent 80%
+  );
+  filter: blur(1px);
+  border-radius: 3px;
+  transform: skew(-12deg);
+  animation: shimmer 3s infinite linear;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: 200px 0; }
+}
+
+.Services ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.se {
+  font-family: 'lilita One', sans-serif;
+  /*font-size: 1.2rem;*/
+  font-weight: bold;
+  color: var(--text-primary);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    
+  /* Box styling */
+  padding: 0.5rem;
+  display: flex;
+  word-wrap: break-word;
+  white-space: normal;
+  align-items: center;
+  line-height: 1.2;
+  justify-content: center;
+  text-align: center;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  /* Box dimensions and font size */
+  width: clamp(120px, 15vw, 150px);
+  height: clamp(95px, 15vw, 95px);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  /* Note: The gap between boxes is controlled by .Services ul { gap: 1rem } */
+}
+
+.se:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+#welcome {
+  transition: opacity 0.2s ease-in-out;
 }

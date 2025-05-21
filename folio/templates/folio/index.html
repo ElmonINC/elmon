@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'folio/css/main.css' %}?v={% now 'U' %}">
     <script src="{% static 'folio/js/script.js' %}"></script> 
+    {% block extra_js %}
+    <script src="{% static 'folio/js/text.js' %}"></script>
+    {% endblock %}
     <title>ELMON | Website Developer </title>
 </head>
 <body>
@@ -27,16 +30,29 @@
 
     <!-- 4 sections for the Website -->
     <section class="hero">
+        <div class="contt">
         <div class="container" >
             
         <!-- <h1>Welcome</h1> -->
         <div  class="typing-text" id="target"></div>
-        <!-- <p>This is the first section of the website.</p> -->  
         <!-- <div><a href="{% url 'matrix' %}">matrix</a></div> -->
         </div>
         <div class="hir">
-        <p>You are welcome, I am a web developer dedicated to creating beautiful and functional websites.</p>
-        <div><a href="hi.html" class="hi-el">Hire Me</a></div>
+            <div class="hir-el">
+            <p id="welcome" web="{{ web }}" ux="{{ ux }}" gdx="{{ gd }}">
+                {{ web }}
+            </p>
+            </div>
+            <div><a href="hi.html" class="hi-el">Hire Me</a></div>
+        </div>
+        <div class="Services">
+            <h2>Services</h2>
+            <ul>
+                <li class="se" id="web">Web Development</li>
+                <li class="se" id="ud">UI/UX Design</li>
+                <li class="se" id="gd">Graphics Design</li>
+            </ul>
+        </div>
         </div>
     </section> 
     <section>   
