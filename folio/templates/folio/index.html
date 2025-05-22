@@ -1,71 +1,52 @@
-{% load static %}
+{% extends 'folio/layout.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'folio/css/main.css' %}?v={% now 'U' %}">
-    <script src="{% static 'folio/js/script.js' %}"></script> 
-    {% block extra_js %}
-    <script src="{% static 'folio/js/text.js' %}"></script>
-    {% endblock %}
-    <title>ELMON | Website Developer </title>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="logo">
-            <!-- Replace with your logo image or text -->
-            <!-- <a href="#"><img src="{% static 'folio/images/logo.png' %}" alt="ELMON"></a> -->
-            <a href="#">ELMON</a>  
-        </div>  
-        <div class="nav-links">
-            <a href="#about">About Me</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#resume">Resume</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-
-    <!-- 4 sections for the Website -->
-    <section class="hero">
-        <div class="contt">
-        <div class="container" >
-            
-        <!-- <h1>Welcome</h1> -->
-        <div  class="typing-text" id="target"></div>
-        <!-- <div><a href="{% url 'matrix' %}">matrix</a></div> -->
+{% block content %}
+<section class="hero">
+    <div class="contt">
+        <div class="container">
+            <div class="typing-text" id="target"></div>
         </div>
         <div class="hir">
             <div class="hir-el">
-            <p id="welcome" web="{{ web }}" ux="{{ ux }}" gdx="{{ gd }}">
-                {{ web }}
-            </p>
+                <p id="welcome" web="{{ web }}" ux="{{ ux }}" gdx="{{ gd }}">
+                    {{ web }}
+                </p> 
             </div>
-            <div><a href="hi.html" class="hi-el">Hire Me</a></div>
+            <div><a href="hi.html" class="hi-el"> Hire Me </a></div>
         </div>
         <div class="Services">
             <h2>Services</h2>
             <ul>
-                <li class="se" id="web">Web Development</li>
-                <li class="se" id="ud">UI/UX Design</li>
-                <li class="se" id="gd">Graphics Design</li>
+                <li class="se" id="web">
+                    <button onclick=" location.href="{% url 'folio:web_dev' %}" type="button">Web Development </button>
+                </li>
+                <li class="se" id="ud">
+                    <button onclick=" location.href="{% url 'folio:ui_ux' %}" type="button">UI / UX Design</button>
+                </li>
+                <li class="se" id="gd">
+                    <button onclick=" location.href="{% url 'folio:grafics' %}" type="button">Graphic Design</button>
+                </li>
             </ul>
         </div>
-        </div>
-    </section> 
-    <section>   
-        <h2>Section 2</h2>
-        <p>This is the second section of the website.</p>
-    </section>    
-    <section>
-        <h2>Section 3</h2>
-        <p>This is the third section of the website.</p>
-    </section>
-    <section>
-        <h2>Section 4</h2>
-        <p>This is the fourth section of the website.</p>
-    </section>
-</body>
-</html>
+    </div>
+</section>
+
+<section>   
+    <h2>Section 2</h2>
+    <p>This is the second section of the website.</p>
+</section>    
+
+<section>
+    <h2>Section 3</h2>
+    <p>This is the third section of the website.</p>
+</section>
+
+<section>
+    <h2>Section 4</h2>
+    <p>This is the fourth section of the website.</p>
+</section>
+{% endblock content %}
+
+{% block extra_scripts %}
+<!-- Add any page-specific scripts here -->
+{% endblock extra_scripts %}

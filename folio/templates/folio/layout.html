@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {% block styles %}
+    <link rel="stylesheet" href="{% static 'folio/css/main.css' %}?v={% now 'U' %}">
+    {% endblock styles %}
+    
+    {% block scripts %}
+    <script src="{% static 'folio/js/script.js' %}"></script>
+    <script src="{% static 'folio/js/text.js' %}"></script>
+    {% endblock scripts %}
+    
+    {% block title %}
+    <title> ELMON | Website Developer </title>
+    {% endblock title %}
+</head>
+<body>
+    {% block navbar %}
+    <nav class="navbar">
+        <div class="logo">
+            <a href="{% url 'folio:index' %}">ELMON</a>  
+        </div>  
+        <div class="nav-links">
+            <!-- <a href="#projects">Projects</a> -->
+            <a href="#about">About me</a>
+            <a href="#resume">Resume</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+    {% endblock navbar %}
+
+    {% block content %}
+    <!-- Content will be inserted here by child templates -->
+    {% endblock content %}
+
+    {% block footer %}
+    <!-- Add your footer here -->
+    {% endblock footer %}
+
+    {% block extra_scripts %}
+    <!-- For additional page-specific scripts -->
+    {% endblock extra_scripts %}
+</body>
+</html>

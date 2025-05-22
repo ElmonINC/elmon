@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     const welcomeText = document.getElementById('welcome');
+    const servicesSection = document.querySelector('.Services');
     
-    if (!welcomeText) {
-        console.log('Welcome text element not found');
+    if (!welcomeText || !servicesSection) {
+        console.log('Required elements not found');
         return;
     }
 
@@ -12,8 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'gd': welcomeText.getAttribute('gdx')
     };
 
-    // Debug log to check values
-    console.log('Loaded texts:', texts);
+    let currentText = texts['web']; // Keep track of current text
 
     function changeText(newText) {
         if (!newText) {
@@ -24,9 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             welcomeText.textContent = newText;
             welcomeText.style.opacity = '1';
-        }, 200);
+            currentText = newText;
+        }, 500);
     }
 
+    // Handle service item hovers
     ['web', 'ud', 'gd'].forEach(id => {
         const element = document.getElementById(id);
         if (element) {
@@ -34,12 +36,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log(`Hovering over ${id}`);
                 changeText(texts[id]);
             });
-
-            element.addEventListener('mouseleave', () => {
-                changeText(texts['web']); // Reset to default text
-            });
-        } else {
-            console.log(`Element with id ${id} not found`);
         }
+    });
+
+    // Only reset text when leaving the entire services section
+    servicesSection.addEventListener('mouseleave', () => {
+        changeText(texts['web']);
     });
 });
