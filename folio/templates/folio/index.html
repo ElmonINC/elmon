@@ -1,5 +1,6 @@
 {% extends 'folio/layout.html' %}
 
+
 {% block content %}
 <section class="hero">
     <div class="contt">
@@ -18,22 +19,22 @@
             <h2>Services</h2>
             <ul>
                 <li class="se" id="web">
-                    <button onclick=" location.href="{% url 'folio:web_dev' %}" type="button">Web Development </button>
+                    <button class="nav-b" data-url="{% url 'folio:web_dev' %}" type="button">Web Development </button>
                 </li>
                 <li class="se" id="ud">
-                    <button onclick=" location.href="{% url 'folio:ui_ux' %}" type="button">UI / UX Design</button>
+                    <button class="nav-b" data-url="{% url 'folio:ui_ux' %}" type="button">UI / UX Design</button>
                 </li>
                 <li class="se" id="gd">
-                    <button onclick=" location.href="{% url 'folio:grafics' %}" type="button">Graphic Design</button>
+                    <button class="nav-b" data-url="{% url 'folio:grafics' %}" type="button">Graphic Design</button>
                 </li>
             </ul>
         </div>
     </div>
 </section>
 
-<section>   
-    <h2>Section 2</h2>
-    <p>This is the second section of the website.</p>
+<section id="about">   
+    <h2>About Me</h2>
+    <p>This is the s
 </section>    
 
 <section>
@@ -46,7 +47,3 @@
     <p>This is the fourth section of the website.</p>
 </section>
 {% endblock content %}
-
-{% block extra_scripts %}
-<!-- Add any page-specific scripts here -->
-{% endblock extra_scripts %}

@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentText = texts['web']; // Keep track of current text
 
     function changeText(newText) {
-        if (!newText) {
+        if (newText === null || newText === undefined) {
             console.log('No text provided for change');
             return;
         }

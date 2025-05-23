@@ -4,7 +4,7 @@
   --text-primary: #333;
   --navbar-bg: rgba(255, 255, 255, 0.95);
   --navbar-shadow: rgba(0, 0, 0, 0.1); 
-  --link-hover:rgb(151, 7, 7);
+  --link-hover:rgb(233, 108, 108);
   --hero-overlay: rgba(0, 0, 0, 0.5);
 } 
 
@@ -15,7 +15,7 @@
     --text-primary: #ffffff;
     --navbar-bg: rgba(18, 18, 18, 0.95);
     --navbar-shadow: rgba(0, 0, 0, 0.3);
-    --link-hover: #8d0606;
+    --link-hover: #d45e5e;
     --hero-overlay: rgba(0, 0, 0, 0.7);
   }
 }
