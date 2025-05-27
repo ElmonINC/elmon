@@ -9,13 +9,13 @@
     {% block styles %}
     <link rel="stylesheet" href="{% static 'folio/css/main.css' %}?v={% now 'U' %}">
     {% endblock styles %}
-    
+
     {% block scripts %}
-    <script src="{% static 'folio/js/script.js' %}"></script>
-    <script src="{% static 'folio/js/nav.js' %}"></script>
-    <script src="{% static 'folio/js/text.js' %}"></script>
+    <script src="{% static 'folio/js/script.js' %}?v={% now 'U' %}"></script>
+    <script src="{% static 'folio/js/nav.js' %}?v={% now 'U' %}"></script>
+    <script src="{% static 'folio/js/text.js' %}?v={% now 'U' %}"></script>
     {% endblock scripts %}
-    
+
     {% block title %}
     <title> ELMON | Website Developer </title>
     {% endblock title %}

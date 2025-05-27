@@ -13,18 +13,18 @@ document.addEventListener('DOMContentLoaded', function() {
         'gd': welcomeText.getAttribute('gdx')
     };
 
-    let currentText = texts['web']; // Keep track of current text
+    let currentText = texts['web']; // Track current text
 
     function changeText(newText) {
-        if (newText === null || newText === undefined) {
-            console.log('No text provided for change');
-            return;
+        if (!newText || newText === currentText) {
+            return; // Don't change if same text or no text
         }
+
         welcomeText.style.opacity = '0';
         setTimeout(() => {
             welcomeText.textContent = newText;
             welcomeText.style.opacity = '1';
-            currentText = newText;
+            currentText = newText; // Update current text
         }, 500);
     }
 
@@ -33,14 +33,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const element = document.getElementById(id);
         if (element) {
             element.addEventListener('mouseenter', () => {
-                console.log(`Hovering over ${id}`);
                 changeText(texts[id]);
             });
         }
     });
 
-    // Only reset text when leaving the entire services section
-    servicesSection.addEventListener('mouseleave', () => {
-        changeText(texts['web']);
-    });
+    // Remove any mouseleave handlers to prevent text reset
 });

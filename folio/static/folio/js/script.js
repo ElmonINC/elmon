@@ -54,10 +54,6 @@ function createTypingAnimation(text) {
 function animate() {
   if (cycles >= 2) {
     element.style.animation = 'none';
-    // Add spaces after the last letter (e.g., 20 spaces)
-    //element.textContent = text + ' '; // 19 spaces
-    //element.appendChild(cursor);
-    // Remove the cursor after second cycle
     const cursor = element.querySelector('span');
     if (cursor) {
       cursor.remove();

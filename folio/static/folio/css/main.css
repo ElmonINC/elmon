@@ -6,6 +6,7 @@
   --navbar-shadow: rgba(0, 0, 0, 0.1); 
   --link-hover:rgb(233, 108, 108);
   --hero-overlay: rgba(0, 0, 0, 0.5);
+  --text-font: 'lilita One', sans-serif;
 } 
 
 @media (prefers-color-scheme: dark) {
@@ -27,13 +28,29 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-html, body{
-  scrollbar-width: none;
-  -ms-overflow-style: none; /* IE and Edge */
+html{
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  height: 100%;
 }
 
 html::-webkit-scrollbar, body::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
+}
+
+section::-webkit-scrollbar {
+  width: 8px;
+  display: block;
+}
+
+section::-webkit-scrollbar-track {
+  background: transparent; /* Optional: makes the track transparent */
+}
+
+section::-webkit-scrollbar-thumb{
+  background: var(--text-primary);
+  border-radius: 4px;
 }
 
 body{
@@ -43,12 +60,28 @@ body{
   color: var(--text-primary);
   scrollbar-width: none;
   -ms-overflow-style: none; /* IE and Edge */
+  height: 100%;
+  overflow-x: hidden;
 }
 
 a{
   text-decoration: none;
   color: var(--text-primary);
   transition: color 0.3s ease;
+}
+
+section{
+  scrollbar-width: thin;
+  -ms-overflow-style: auto;
+  width: 90%;
+  height: 100vh;    
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .navbar {     
@@ -123,7 +156,7 @@ a{
 
 .contt {
   position: absolute;
-  top: 30%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, 0);
   max-width: 1200px;
@@ -134,17 +167,15 @@ a{
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: clamp(1rem, 3vh, 3rem); /* Responsive gap */
-  padding: clamp(1rem, 2vh, 2rem);
+  gap: clamp(0.3rem, 1vh, 1rem); /* Reduced gap */
+  padding: clamp(0.5rem, 1vh, 1rem); /* Reduced padding */
   z-index: 2;
 }
 
 .hero .container {
   position: relative;
-  z-index: 2;  /* Places content above the overlay */
-  color: #fff;  /* Forces white text */
-  background-color: transparent;  /* Ensures background is transparent */
-  padding: 2rem;
+  z-index: 2; 
+  background-color: transparent; 
   text-align: center;
   width: 100%;
   display: flex;
@@ -156,12 +187,9 @@ a{
 .hero .container .typing-text,
 .hero .container p {
   position: relative;
-  z-index: 2;
-  color: #fff !important;  /* Forces white text with highest priority */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);  /* Optional: adds readability */
 }
 
-/* Optional dark overlay */
+/* Dark overlay */
 .hero::before {
   content: '';
   position: absolute;
@@ -171,16 +199,13 @@ a{
   height: 100%;
   background-color: var(--hero-overlay);
   z-index: 1;
-}   
+}
 
 .container {
   font-family: 'lilita One' , sans-serif;
   margin: 2rem; 
 }
 
-.container #target{
-  font-size: clamp(2rem, 4vw, 3rem);
-}
 
 .typing-text {
   overflow: hidden;
@@ -195,9 +220,8 @@ a{
   white-space: nowrap;
   border-right: 2px solid transparent;
   width: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: bold;
-  padding-right: 0.5em;
-  padding-left: 0.5em;
 }
  
 .cursor {
@@ -221,15 +245,10 @@ a{
 }
 
 .hir{
-  font-family: 'lilita One' , sans-serif;
   font-size: 1rem;
   color: var(--text-primary);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  position: relative;
-  /*cursor: pointer;*/
   z-index: 2; /* Places above overlay (which has z-index: 1) */
   text-align: center;
-  padding: 1rem;
   width: 90%;
   max-width: 800px;
   /* ...existing code... */
@@ -237,24 +256,30 @@ a{
   z-index: 3;
 }
 
-.hir p {
-  font-size: clamp(0.9rem, 1.8vw, 1.15rem);
+.hir-el p{
+  font-size: clamp(0.6rem, min(1.5vw, 1.5vh), 1.4rem);
+  text-align: center;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  padding: 0.5rem 0;
   width: 100%;
   transition: opacity 0.5s ease-in-out;
-  /* ...existing code... */
-  min-height: 4.5em;  /* Set a fixed minimum height */
-  height: 5em;      /* Set a fixed height */
-  overflow: hidden; /* Hide any overflow */
+  min-height: 5.2em; 
+  height: 5em;  
+  overflow: hidden; 
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: justify;
   margin: 0 auto;
   line-height: 1.5;
 }
 
-@media (min-width: 900px) {
-  .hir p {
-    width: 60%;
+@media (min-width: 800px) {
+  .hir-el p {
+    width: 70%;
     margin: 0 auto;
   }
 }
@@ -307,15 +332,6 @@ a{
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-.hir-el{
-  width: 100%;
-  margin-bottom: 0.2rem;
-  height: 4.5em; /* Slightly larger than p height to accommodate content */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .Services {
   width: 100%;
   display: flex;
@@ -327,14 +343,14 @@ a{
   width: 100%;
   max-width: 1000px;
   margin-top: 0px;  
-  margin-bottom: 0.5rem; 
-  /* ...existing code... */
+  max-height: calc(100vh - 400px);
   opacity: 0;
   visibility: hidden;
   transform: translateY(20px);
   transition: all 0.3s ease;;
-  pointer-events: none; /* Add this */
+  pointer-events: none;
   position: relative;
+  overflow-y: auto;
   z-index: 2;
 }
 
@@ -343,7 +359,6 @@ a{
   margin-bottom: 0.2rem;
   font-size: 1.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  /* ...existing code... */
   position: relative;
   display: inline-block;
   padding-bottom: 0.5rem;
@@ -352,6 +367,21 @@ a{
   font-size: 1.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
+
+.Services::-webkit-scrollbar {
+  width: 8px;
+  display: block;
+}
+
+.Services::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.Services::-webkit-scrollbar-thumb {
+  background: var(--text-primary);
+  border-radius: 4px;
+}
+
 
 .Services h2::after {
   content: "";
@@ -380,7 +410,7 @@ a{
 
 .Services ul {
   display: flex;
-  gap: 1.5rem;
+  gap: 0.8rem;
   list-style: none;
   justify-content: center;
   flex-wrap: wrap;
@@ -411,9 +441,9 @@ a{
   transition: all 0.3s ease;
 
   /* Box dimensions and font size */
-  width: clamp(120px, 15vw, 150px);
-  height: clamp(95px, 15vw, 95px);
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  width: clamp(90px, 11.25vw, 112.5px);
+  height: clamp(71.25px, 11.25vw, 71.25px);
+  font-size: clamp(0.75rem, 1.125vw, 0.9rem);
   /* Note: The gap between boxes is controlled by .Services ul { gap: 1rem } */
 }
 
@@ -421,6 +451,9 @@ a{
   background-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-5px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  width: clamp(120px, 15vw, 150px);
+  height: clamp(95px, 15vw, 95px);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
 }
 
 .se button {
