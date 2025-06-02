@@ -14,6 +14,7 @@
     /* Dark theme variables */
     --bg-primary: #121212;
     --text-primary: #ffffff;
+    --text-font: 'lilita One', sans-serif;
     --navbar-bg: rgba(18, 18, 18, 0.95);
     --navbar-shadow: rgba(0, 0, 0, 0.3);
     --link-hover: #d45e5e;
@@ -102,7 +103,6 @@ section{
 
 .logo img {
   height: 40px;
-  /* If using text logo instead */
   font-size: 1.5rem;
   font-weight: bold; 
   color: #333; 
@@ -160,7 +160,7 @@ section{
   left: 50%;
   transform: translate(-50%, 0);
   max-width: 1200px;
-  width: 60%;
+  width: 70%;
   height: calc(70vh); /* This makes it extend from 30% to bottom */
   bottom: 0;
   display: flex;
@@ -210,7 +210,7 @@ section{
 .typing-text {
   overflow: hidden;
   white-space: nowrap;
-  border-right: 2px solid transparent; /* Cursor will be separate */
+  border-right: 2px solid transparent;
   display: inline-block;
   position: relative;
 }
@@ -220,7 +220,7 @@ section{
   white-space: nowrap;
   border-right: 2px solid transparent;
   width: 0;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.5em, 3.5vw, 2.5em);
   font-weight: bold;
 }
  
@@ -245,40 +245,41 @@ section{
 }
 
 .hir{
-  font-size: 1rem;
   color: var(--text-primary);
-  z-index: 2; /* Places above overlay (which has z-index: 1) */
   text-align: center;
-  width: 90%;
   max-width: 800px;
-  /* ...existing code... */
   position: relative;
-  z-index: 3;
+  z-index: 2;
 }
 
-.hir-el p{
-  font-size: clamp(0.6rem, min(1.5vw, 1.5vh), 1.4rem);
-  text-align: center;
-  word-wrap: break-word;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
-  padding: 0.5rem 0;
-  width: 100%;
-  transition: opacity 0.5s ease-in-out;
-  min-height: 5.2em; 
-  height: 5em;  
-  overflow: hidden; 
-  display: flex;
-  align-items: center;
-  justify-content: justify;
-  margin: 0 auto;
-  line-height: 1.5;
-}
-
-@media (min-width: 800px) {
+@media (max-width: 760px) {
   .hir-el p {
+    font-size: clamp(1em, min(1.7vw, 1.7vh), 2em);
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+  }
+}
+
+@media (min-width: 770px) {
+  .hir-el p {
+    transition: opacity 0.5s ease-in-out;
+    word-wrap: break-word;
+    padding: 0.5rem 0;
+    overflow: hidden; 
+    display: flex;  
+    align-items: center;
+    justify-content: justify;
+    margin: 0 auto;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    height: auto;  
     width: 70%;
     margin: 0 auto;
   }
@@ -303,26 +304,18 @@ section{
 }
 
 .hi-el {
-  font-family: 'lilita One', sans-serif;
   font-size: 1.5rem;
-  font-weight: bold; 
   color: var(--text-primary);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    
-  /* Box styling */
   position: relative;
   display: inline-block;
   padding: 0.2rem 0.5rem;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(5px);
-  margin-top: 1rem; /* Adds space above hi-el button */
-
-  /* Border and shadow for depth */
+  margin-top: 0.2em;
   border: 2px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    
-  /* Hover effect */
   transition: all 0.3s ease;
 }
 
@@ -333,16 +326,14 @@ section{
 }
 
 .Services {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  padding: 2rem;
   z-index: 2;
   width: 100%;
+  margin-top: 1.8rem;
   max-width: 1000px;
-  margin-top: 0px;  
   max-height: calc(100vh - 400px);
   opacity: 0;
   visibility: hidden;
@@ -351,7 +342,6 @@ section{
   pointer-events: none;
   position: relative;
   overflow-y: auto;
-  z-index: 2;
 }
 
 .Services h2 {
@@ -361,11 +351,8 @@ section{
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   position: relative;
   display: inline-block;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.1rem;
   color: var(--text-primary);
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .Services::-webkit-scrollbar {
@@ -410,7 +397,7 @@ section{
 
 .Services ul {
   display: flex;
-  gap: 0.8rem;
+  gap: 1rem;
   list-style: none;
   justify-content: center;
   flex-wrap: wrap;
@@ -418,12 +405,9 @@ section{
 
 .se {
   font-family: 'lilita One', sans-serif;
-  /*font-size: 1.2rem;*/
   font-weight: bold;
   color: var(--text-primary);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    
-  /* Box styling */
   padding: 0.5rem;
   display: flex;
   word-wrap: break-word;
@@ -439,12 +423,48 @@ section{
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: all 0.3s ease;
-
-  /* Box dimensions and font size */
   width: clamp(90px, 11.25vw, 112.5px);
   height: clamp(71.25px, 11.25vw, 71.25px);
   font-size: clamp(0.75rem, 1.125vw, 0.9rem);
-  /* Note: The gap between boxes is controlled by .Services ul { gap: 1rem } */
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 495px) {
+  .Services {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .se {
+    /* Remove box styling */
+    background-color: transparent;
+    backdrop-filter: none;
+    border: none;
+    box-shadow: none;
+    width: auto;
+    height: auto;
+    font-size: 1rem;
+    color: var(--text-primary);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+  .se:hover {
+    /* Remove hover effects */
+    background-color: transparent;
+    transform: none;
+    box-shadow: none;
+    width: auto;
+    height: auto;
+  }
+  .se button {
+    padding: 0;
+    text-align: left;
+    font-size: inherit;
+  }
+  .Services ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .se:hover {

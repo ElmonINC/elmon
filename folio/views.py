@@ -6,11 +6,11 @@ def index(request):
 
 def index(request):
     context = {
-        'web': "Welcome, I'm a passionate Full Stack Developer who turns ideas into powerful web solutions. Let's build something amazing together!",
+        'web': "Welcome, I'm a passionate Full Stack Developer who turns ideas into powerful websites. Let's build something amazing!",
         'ux': "Ello, I create intuitive and engaging user experiences that delight your customers and drive results. Let's make your product user-friendly!",
         'gd': "Welcome, transform your brand with stunning visuals. I blend creativity with strategic design to make your business stand out."  
     }
-    return render(request, 'folio/index.html', context)
+    return render(request, 'folio/index.html', context) 
 
 def matrix(request):
     return render(request, 'folio/templates.html')
