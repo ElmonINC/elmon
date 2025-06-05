@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const timelineItems = document.querySelectorAll('.timeline-item');
+    const timelineItems = document.querySelectorAll('.r-item');
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {

@@ -134,25 +134,17 @@ section{
 }
 
 .hero {
-
-  /* Fullscreen setup */
   min-height: 100vh;
   width: 100%;
-          
-  /* Background image setup */
   background-image: url('../images/images-4.jpeg');   
   background-position: center;
   background-repeat: no-repeat; 
   background-size: cover;  
-    
-  /* Content positioning */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-    
-  /* Optional overlay to improve text readability */
   position: relative;
 }
 
@@ -410,7 +402,7 @@ section{
   font-weight: bold;
   color: var(--text-primary);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  padding: 0.5rem;
+  padding: 0rem;
   display: flex;
   word-wrap: break-word;
   white-space: normal;
@@ -490,56 +482,48 @@ section{
   transition: all 0.3s ease;
 }
 
-.se {
-  /* ...existing code... */
-  padding: 0; /* Remove padding as it's now handled by button */
-}
-
 .se:hover button {
   transform: translateY(-5px);
 }
 
-
-
-.timeline {
+.resum_drop {
     position: relative;
     padding: 20px 0;
 }
 
-.timeline.animate::before {
+.resum_drop.animate::before {
     transform: scaleY(1);
 }
 
-.timeline-item {
+.r-item {
     position: relative;
     margin-bottom: 60px;
     opacity: 0;
     transform: translateY(50px);
     transition: all 0.6s ease;
 }
-.timeline-item.visible {
+.r-item.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-.timeline-dot {
-    position: absolute;
-    left: 16px;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #333;
-    transform: scale(0);
-    transition: transform 0.3s ease;
-    z-index: 2;
+.r-dot {
+  position: absolute;
+  left: 16px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #cfcfcf;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+  z-index: 2;
 }
 
-.timeline-item.visible .timeline-dot {
+.r-item.visible .r-dot {
     transform: scale(1);
 }
 
-
-.timeline-content {
+.r-job {
     margin-left: 60px;
     background: #f5f5f5;
     padding: 20px;
@@ -547,17 +531,17 @@ section{
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.timeline-content h3 {
+.r-job h3 {
     margin: 0 0 10px;
     color: #333;
 }
 
-.timeline-content p {
+.r-job p {
     color: #666;
     margin: 0 0 15px;
 }
 
-.description {
+.wery {
     color: #555;
     line-height: 1.6;
 }
