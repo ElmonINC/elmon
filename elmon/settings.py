@@ -26,9 +26,9 @@ SECRET_KEY = 'django-insecure-gi=^t33g+@4qr_0(t53%%qu3(c4vf3rw8dyxng53n64=bbh9-r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 # Add Render's domain and your custom domain to ALLOWED_HOSTS
-# ALLOWED_HOSTS = ['elmon.onrender.com', 'localhost', '127.0.0.1:8000']
+ALLOWED_HOSTS = ['elmon.onrender.com', 'localhost', '127.0.0.1:8000', '127.0.0.1']
 
 
 # Application definition
