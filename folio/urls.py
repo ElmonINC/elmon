@@ -7,5 +7,6 @@ urlpatterns = [
     path('matrix/', views.matrix, name='matrix'),
     path('web', views.web_dev, name='web_dev'),
     path('ui_ux', views.ui_ux, name='ui_ux'),
+    path('about', views.index, name='about'),
     path('grafics', views.grafics, name='grafics'),
 ] 

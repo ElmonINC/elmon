@@ -61,6 +61,7 @@ body{
   color: var(--text-primary);
   scrollbar-width: none;
   -ms-overflow-style: none; /* IE and Edge */
+  max-width: 1400px;
   height: 100%;
   overflow-x: hidden;
 }
@@ -85,19 +86,20 @@ section{
   overflow-y: auto;
 }
 
-.navbar {     
-  /* ...existing code... */
+.navbar { 
   background-color: var(--navbar-bg);
   box-shadow: 0 2px 5px var(--navbar-shadow);
   position: fixed;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
+  max-width: 1400px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  z-index: 1000;
+  z-index: 20;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -363,7 +365,7 @@ section{
 .Services::-webkit-scrollbar-track {
   background: transparent;
 }
-
+  
 .Services::-webkit-scrollbar-thumb {
   background: var(--text-primary);
   border-radius: 4px;
@@ -495,4 +497,67 @@ section{
 
 .se:hover button {
   transform: translateY(-5px);
+}
+
+
+
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline.animate::before {
+    transform: scaleY(1);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease;
+}
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 16px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #333;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+    z-index: 2;
+}
+
+.timeline-item.visible .timeline-dot {
+    transform: scale(1);
+}
+
+
+.timeline-content {
+    margin-left: 60px;
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.timeline-content h3 {
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.timeline-content p {
+    color: #666;
+    margin: 0 0 15px;
+}
+
+.description {
+    color: #555;
+    line-height: 1.6;
 }
